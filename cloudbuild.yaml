@@ -1,5 +1,9 @@
 steps:
-  - id: detectSecrets
+  - id: unshallowRepository
+    name: gcr.io/cloud-builders/git
     waitFor: ['-']
+    args: ['fetch', '--unshallow']
+
+  - id: detectSecrets
     name: gcr.io/${PROJECT_ID}/detect-secrets-docker-ci:latest
-    dir: '/opt'
+    waitFor: ['unshallowRepository']
