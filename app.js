@@ -2,7 +2,7 @@
 
 var http = require('http');
 
-API_KEY = "blah-blah-but-actually-not-secret"
+API_KEY = "blah-blah-but-actually-not-secret-yes"
 
 http.createServer(function (_, res) {
   res.write('Hello World!'); 
